@@ -1,0 +1,82 @@
+%!TEX TS-program = xelatex
+%!TEX encoding = UTF-8 Unicode
+
+% Version of 20161029. Derived from file ``Math flashcard template 20111118.tex''
+% Packages loaded may be more numerous than needed. Pruning pending.
+
+% Uses a custom command \fl{question}{answer} to generate flashcards. 
+% Intended for printing on double-sided paper.
+
+\documentclass[avery5371,grid]{flashcards}
+\usepackage{geometry}             % See geometry.pdf to learn the layout options.
+\geometry{letterpaper}            % ... or a4paper or a5paper or ... 
+\usepackage{mathtools}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{mathspec}			% replaces amssymb; do not use unicode-math
+\usepackage{fontspec}
+\usepackage{url}		 			% allows normal display of URLs
+\usepackage{mdwtab}				% allows the use of footnotes in tables
+\usepackage[hang,flushmargin]{footmisc}	% makes footnotes flush with margin, etc.
+\usepackage{setspace}			% control of line spacing
+\usepackage[normalem]{ulem}		% underlining (with ``normal emphasis'' retained)
+\usepackage{alltt}
+\usepackage{comment}				% allows
+
+%\usepackage{paralist}			% enables more compact lists; use compactitem, compactenum, and compactdesc
+\usepackage{enumitem}			% enables more flexible spacing in lists
+\usepackage{datetime}		% allows \currenttime
+
+\setitemize{itemsep=0pt}
+\setlist{nolistsep,leftmargin=0.1in}
+
+
+
+\usepackage{longtable}		% allows table-breaks across pages: \begin{longtable}
+
+\defaultfontfeatures{Mapping=tex-text}
+\setromanfont[Scale=1,Mapping=tex-text]{TeX Gyre Termes}
+\setsansfont[Scale=MatchLowercase,Mapping=tex-text]{TeX Gyre Heros Cn}
+\usepackage[noendash,italic]{mathastext}	% propagates document text font to math mode; use option italic to get italic text in math mode
+
+\widowpenalty=3000		% avoid widows
+\clubpenalty=10000			% avoid orphans
+\frenchspacing				% no extra space at end of each sentence-period.
+
+\setlength{\parindent}{0cm}	% no paragraph indent
+\setlength{\doublerulesep}{\arrayrulewidth}
+
+
+
+%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%
+
+%normal card: \fl
+\newcommand{\fl}[2]{\begin{flashcard}{#1}{#2}\end{flashcard}}
+
+
+
+\newcommand\gr[2]{\scalebox{#2}{\includegraphics{#1}}}
+
+
+\cardfrontstyle{headings}
+\cardfrontfootstyle[\footnotesize]{right}
+
+%\title{flashcards}
+%\author{David Prager Branner}
+
+\DeclareGraphicsRule{.tif}{png}{.png}{`convert #1 `dirname #1`/`basename #1 .tif`.png}
+
+\begin{document}
+
+\cardfrontfoot{ggg) \today}
+
+
+\fl{qqq}{rrr}
+
+%\fl{qqq}{rrr}
+
+\end{document}
